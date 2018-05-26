@@ -2,8 +2,7 @@
 My vim config files.
 
 # Prerequisite
-Linux
-Vim 8 (with python for youcompleteme)
+Linux, Vim 8 (with python for youcompleteme)
 
 # Install
 ```
