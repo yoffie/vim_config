@@ -136,6 +136,7 @@ colorscheme garden         " set colorscheme
 " set tabline, for check and change between Buffers, thus don't need minibufexpl
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
+let g:airline#extensions#tabline#formatter = 'default'
 " short cut to change between Buffers
 nnoremap <tab> :bn<CR>
 nnoremap <s-tab> :bp<CR>
@@ -204,6 +205,8 @@ map <leader>t :TlistToggle<CR>
 " set YouCompleteMe
 "---------------------------------------------------------------------
 " open/close ycm options
+let g:ycm_path_to_python_interpreter = '/home/songyoff/miniconda3/envs/pytorch/bin/python'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 set completeopt=menuone,longest,preview         " popup a menu, match longest, preview
 let g:ycm_min_num_of_chars_for_completion=1     " popup after typed x chars
 let g:ycm_cache_omnifunc=0                      " unable cache complete options
@@ -238,6 +241,11 @@ nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>p :<C-i>
 " goto backward
 nnoremap <leader>b :<C-o>
+" add python packages' path
+let $PYTHONPATH .= ':/home/songyoff/miniconda3/lib/python2.7/site-packages/'
+"let $PYTHONPATH .= ':/home/songyoff/miniconda3/envs/mxnet/lib/python3.6/site-packages/'
+let $PYTHONPATH .= ':/home/songyoff/miniconda3/envs/pytorch/lib/python3.6/site-packages/'
+let $PYTHONPATH .= ':/home/songyoff/miniconda3/envs/tf/lib/python3.6/site-packages/'
 let g:ycm_confirm_extra_conf=0                  " need no confirm when load .ycm_extra_conf.py
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_semantic_triggers =  {
