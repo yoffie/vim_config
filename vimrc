@@ -19,7 +19,7 @@ set ruler                       " show current line and column number on bottom
 set enc=utf-8                   " set encoding
 "set langmenu=zh_CN.UTF-8       " show menu in Chinese
 "set lines=999 columns=999       " show gvim full screen
-let &colorcolumn=join(range(81,999),",") " highlight regions over 80 characters
+let &colorcolumn=join(range(81,120),",") " highlight regions over 80 characters
 " programming assistant ----------------------------------------------
 syntax on                       " highlight according to syntax
 set nowrap                      " donot wrap code
@@ -242,10 +242,10 @@ nnoremap <leader>p :<C-i>
 " goto backward
 nnoremap <leader>b :<C-o>
 " add python packages' path
-let $PYTHONPATH .= ':/home/songyoff/miniconda3/lib/python2.7/site-packages/'
+let $PYTHONPATH .= ':/home/songyoff/anaconda3/lib/python3.6/site-packages/'
 "let $PYTHONPATH .= ':/home/songyoff/miniconda3/envs/mxnet/lib/python3.6/site-packages/'
-let $PYTHONPATH .= ':/home/songyoff/miniconda3/envs/pytorch/lib/python3.6/site-packages/'
-let $PYTHONPATH .= ':/home/songyoff/miniconda3/envs/tf/lib/python3.6/site-packages/'
+"let $PYTHONPATH .= ':/home/songyoff/miniconda3/envs/pytorch/lib/python3.6/site-packages/'
+"let $PYTHONPATH .= ':/home/songyoff/miniconda3/envs/tf/lib/python3.6/site-packages/'
 let g:ycm_confirm_extra_conf=0                  " need no confirm when load .ycm_extra_conf.py
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_semantic_triggers =  {
