@@ -42,6 +42,14 @@ set autochdir                   " auto change working dir when open a file
 " split window related -------------------------------------------
 set splitbelow                  " enable split in bottom
 set splitright                  " enable split in right
+" shortcut : close the current window if it is not the last one.
+nnoremap <leader>c <C-W><C-C>
+" shortcut : close the current window, if it is the last one, quit vim.
+nnoremap <leader>q <C-W><C-q>
+" shortcut : split the window vertically
+nnoremap <leader>s <C-W><C-S>
+" shortcut : split the window horizontally
+nnoremap <leader>v <C-W><C-V>
 " shortcut : change to the window
 nnoremap <leader>w <C-W><C-W>
 " shortcut : change to the bottom window
@@ -205,8 +213,8 @@ map <leader>t :TlistToggle<CR>
 " set YouCompleteMe
 "---------------------------------------------------------------------
 " open/close ycm options
-let g:ycm_path_to_python_interpreter = '/home/songyoff/miniconda3/envs/pytorch/bin/python'
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+let g:ycm_path_to_python_interpreter = '/home/songyoff/anaconda3/bin/python'
 set completeopt=menuone,longest,preview         " popup a menu, match longest, preview
 let g:ycm_min_num_of_chars_for_completion=1     " popup after typed x chars
 let g:ycm_cache_omnifunc=0                      " unable cache complete options
