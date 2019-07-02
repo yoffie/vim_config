@@ -12,6 +12,7 @@ cd ~/.vim
 mkdir bundle  # install the bundle, which is a plugin management
 cd bundle
 git clone https://github.com/VundleVim/Vundle.vim.git
+sudo apt-get install ctags
 ```
 Then type ```vim``` to start the vim program. In the program type ```:PluginInstall``` to download and install the other plugins. This may take a long time, expesially for the plugin YouCompleteMe. If you donot need the plugin YouCompleteMe, comment the line Plugin 'Valloric/YouCompleteMe' in vimrc.
 
