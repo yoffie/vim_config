@@ -250,7 +250,7 @@ nnoremap <leader>p :<C-i>
 " goto backward
 nnoremap <leader>b :<C-o>
 " add python packages' path
-let $PYTHONPATH .= ':~/anaconda3/lib/python3.6/site-packages/'
+let $PYTHONPATH .= ':/home/songyoff/anaconda3/lib/python3.6/site-packages/'
 let g:ycm_confirm_extra_conf=0                  " need no confirm when load .ycm_extra_conf.py
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_semantic_triggers =  {
