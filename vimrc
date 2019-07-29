@@ -213,8 +213,7 @@ map <leader>t :TlistToggle<CR>
 " set YouCompleteMe
 "---------------------------------------------------------------------
 " open/close ycm options
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-let g:ycm_path_to_python_interpreter = '/home/songyoff/anaconda3/bin/python'
+let g:ycm_path_to_python_interpreter = '~/anaconda3/bin/python'
 set completeopt=menuone,longest,preview         " popup a menu, match longest, preview
 let g:ycm_min_num_of_chars_for_completion=1     " popup after typed x chars
 let g:ycm_cache_omnifunc=0                      " unable cache complete options
@@ -243,17 +242,15 @@ nnoremap <leader>lc :lclose<CR>
 " popup complete window
 inoremap <leader><leader> <C-x><C-o>
 " goto
-nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>i :YcmCompleter GoToInclude<CR>
+nnoremap <leader>r :YcmCompleter GoToReferences<CR>
 " goto forward
 nnoremap <leader>p :<C-i>
 " goto backward
 nnoremap <leader>b :<C-o>
 " add python packages' path
-let $PYTHONPATH .= ':/home/songyoff/anaconda3/lib/python3.6/site-packages/'
-"let $PYTHONPATH .= ':/home/songyoff/miniconda3/envs/mxnet/lib/python3.6/site-packages/'
-"let $PYTHONPATH .= ':/home/songyoff/miniconda3/envs/pytorch/lib/python3.6/site-packages/'
-"let $PYTHONPATH .= ':/home/songyoff/miniconda3/envs/tf/lib/python3.6/site-packages/'
+let $PYTHONPATH .= ':~/anaconda3/lib/python3.6/site-packages/'
 let g:ycm_confirm_extra_conf=0                  " need no confirm when load .ycm_extra_conf.py
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_semantic_triggers =  {
