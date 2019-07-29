@@ -82,10 +82,10 @@ au BufNewFile,BufRead *.prototxt set tabstop=2|set softtabstop=2|set shiftwidth=
 " Vundle
 "-----------------------------------------------------------
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/home/songyoff/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+"call vundle#begin('/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -252,7 +252,7 @@ nnoremap <leader>b :<C-o>
 " add python packages' path
 let $PYTHONPATH .= ':/home/songyoff/anaconda3/lib/python3.6/site-packages/'
 let g:ycm_confirm_extra_conf=0                  " need no confirm when load .ycm_extra_conf.py
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '/home/songyoff/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_semantic_triggers =  {
     \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
     \ 'cs,lua,javascript': ['re!\w{2}'],
