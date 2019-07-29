@@ -213,7 +213,7 @@ map <leader>t :TlistToggle<CR>
 " set YouCompleteMe
 "---------------------------------------------------------------------
 " open/close ycm options
-let g:ycm_path_to_python_interpreter = '~/anaconda3/bin/python'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 set completeopt=menuone,longest,preview         " popup a menu, match longest, preview
 let g:ycm_min_num_of_chars_for_completion=1     " popup after typed x chars
 let g:ycm_cache_omnifunc=0                      " unable cache complete options
