@@ -71,7 +71,12 @@ set hlsearch                    " hight light searched content
 set noexpandtab                 " donot expand tab to space
 "set whichwrap+=<,>,h,l          " set whichwrap
 set autoread                    " set autoread
-set clipboard=unnamedplus       " easy exchange content with system clipboard
+" easy exchange content with system clipboard
+if has('unix')
+  set clipboard=unnamedplus
+elseif has('mac')
+  set clipboard=unnamed
+endif
 set list                        " show blank chars
 set listchars=tab:>-,trail:-
 " setting for specific filetypes -------------------------------------
