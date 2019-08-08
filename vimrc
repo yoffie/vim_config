@@ -73,7 +73,7 @@ set noexpandtab                 " donot expand tab to space
 "set whichwrap+=<,>,h,l          " set whichwrap
 set autoread                    " set autoread
 " easy exchange content with system clipboard
-if has('unix')
+if has('linux')
   set clipboard=unnamedplus
 elseif has('mac')
   set clipboard=unnamed
