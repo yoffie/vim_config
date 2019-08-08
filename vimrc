@@ -4,6 +4,7 @@
 set nocompatible                " nocompatible with VI, Vundle required
 filetype off                    " Vundle required
 let mapleader=";"
+let maplocalleader=","
 " appearence ---------------------------------------------------------
 set number                      " show line number
 set showtabline=0               " donot show tabline on top
@@ -82,6 +83,7 @@ set listchars=tab:>-,trail:-
 " setting for specific filetypes -------------------------------------
 au BufNewFile,BufRead *.c,*.cpp,*.cc,*.cxx,*.C,*.c++,*.h,*.hpp,*.hxx set tabstop=4|set softtabstop=4|set shiftwidth=4|set expandtab
 au BufNewFile,BufRead *.prototxt set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
+au BufNewFile,BufRead *.tex set wrap
 
 "-----------------------------------------------------------
 " Vundle
@@ -107,6 +109,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'taglist.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'ervandew/supertab'
+Plugin 'sirver/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'lervag/vimtex'
 
 " discarded plugins
 "Plugin 'winmanager'
@@ -273,3 +279,45 @@ let g:ycm_semantic_triggers =  {
 "\ "zsh":1,
 "\ "zimbu":1,
 "\ }
+
+"---------------------------------------------------------------------
+" set vimtex
+"---------------------------------------------------------------------
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+"---------------------------------------------------------------------
+" set ultisnips
+"---------------------------------------------------------------------
+function! g:UltiSnips_Complete()
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res == 0
+    if pumvisible()
+      return "\<C-n>"
+    else
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        return "\<TAB>"
+      endif
+    endif
+  endif
+  return ""
+endfunction
+
+function! g:UltiSnips_Reverse()
+  call UltiSnips#JumpBackwards()
+  if g:ulti_jump_backwards_res == 0
+    return "\<C-P>"
+  endif
+
+  return ""
+endfunction
+
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
