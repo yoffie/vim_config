@@ -157,8 +157,8 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
 let g:airline#extensions#tabline#formatter = 'default'
 " short cut to change between Buffers
-nnoremap <tab> :bn<CR>
-nnoremap <s-tab> :bp<CR>
+nnoremap <Tab> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
 " don't show the number of spaces
 let g:airline#extensions#whitespace#enabled=0
 let g:airline#extensions#whitespace#symbol='!'
@@ -168,7 +168,7 @@ let g:airline#extensions#whitespace#symbol='!'
 "---------------------------------------------------------------------
 "autocmd vimenter * NERDTree    " auto open NERDTree when start up vim
 " shortcut to open/close NERDTree
-map <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 let NERDTreeChDirMode=1
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
@@ -218,7 +218,7 @@ let Tlist_Exit_OnlyWindow = 1          " if taglist is the last window, exist
 let Tlist_WinWidth = 32                " the width of taglist window
 "let Tlist_Ctags_Cmd='/usr/local/bin/ctags'  " the loction of ctags
 " shortcut to open/close taglist
-map <leader>t :TlistToggle<CR>
+nnoremap <leader>t :TlistToggle<CR>
 
 "---------------------------------------------------------------------
 " set YouCompleteMe
@@ -231,35 +231,12 @@ let g:ycm_cache_omnifunc=0                      " unable cache complete options
 let g:ycm_autoclose_preview_window_after_completion=1 " atuo close complete menu
 let g:ycm_key_invoke_completion = ''            " donot invoke semantic complete manually
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif  " atuo close menu when leave insert mode
-" use enter to sellect option
-"inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 let g:ycm_collect_identifiers_from_tags_files=1 " enable YCM collect identifiers from tags
 let g:ycm_auto_trigger = 1                      " automatically invoke YCM
 let g:ycm_seed_identifiers_with_syntax=1        " enable YCM using programming language's key words
 let g:ycm_complete_in_comments = 1              " enable YCM when writing comments
 let g:ycm_complete_in_strings = 1               " enable YCM when writing string
 let g:ycm_collect_identifiers_from_comments_and_strings = 0 " collect identifiers from comments and strings
-" remap shortcuts to enhance using the popup menu just as in an IDE
-inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
-" force recomile with syntastic
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-" open locationlist
-nnoremap <leader>lo :lopen<CR>
-" close locationlist
-nnoremap <leader>lc :lclose<CR>
-" popup complete window
-inoremap <leader><leader> <C-x><C-o>
-" goto
-nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>i :YcmCompleter GoToInclude<CR>
-nnoremap <leader>r :YcmCompleter GoToReferences<CR>
-" goto forward
-nnoremap <leader>p :<C-i>
-" goto backward
-nnoremap <leader>b :<C-o>
 " add python packages' path
 let $PYTHONPATH .= ':/home/songyoff/anaconda3/lib/python3.6/site-packages/'
 let g:ycm_confirm_extra_conf=0                  " need no confirm when load .ycm_extra_conf.py
@@ -268,17 +245,27 @@ let g:ycm_semantic_triggers =  {
     \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
     \ 'cs,lua,javascript': ['re!\w{2}'],
     \ }
-"let g:ycm_filetype_whitelist = { 
-"\ "h":1,
-"\ "hpp":1,
-"\ "c":1,
-"\ "cpp":1,
-"\ "cc":1,
-"\ "objc":1,
-"\ "sh":1,
-"\ "zsh":1,
-"\ "zimbu":1,
-"\ }
+
+" make ycm compatible with ultisnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-N>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-P>', '<Up>']
+let g:SuperTabDefaultCompletionType='<C-N>'
+" force recomile with syntastic
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+" open locationlist
+nnoremap <leader>lo :lopen<CR>
+" close locationlist
+nnoremap <leader>lc :lclose<CR>
+" popup complete window
+inoremap <leader><leader> <C-X><C-O>
+" goto
+nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>i :YcmCompleter GoToInclude<CR>
+nnoremap <leader>r :YcmCompleter GoToReferences<CR>
+" goto forward
+nnoremap <leader>p :<C-I>
+" goto backward
+nnoremap <leader>b :<C-O>
 
 "---------------------------------------------------------------------
 " set vimtex
@@ -292,32 +279,7 @@ let g:tex_conceal='abdmg'
 "---------------------------------------------------------------------
 " set ultisnips
 "---------------------------------------------------------------------
-function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res == 0
-    if pumvisible()
-      return "\<C-n>"
-    else
-      call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
-        return "\<TAB>"
-      endif
-    endif
-  endif
-  return ""
-endfunction
+let g:UltiSnipsExpandTrigger = "<Tab>"
+let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 
-function! g:UltiSnips_Reverse()
-  call UltiSnips#JumpBackwards()
-  if g:ulti_jump_backwards_res == 0
-    return "\<C-P>"
-  endif
-
-  return ""
-endfunction
-
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
