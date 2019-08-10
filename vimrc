@@ -113,6 +113,8 @@ Plugin 'ervandew/supertab'
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'lervag/vimtex'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " discarded plugins
 "Plugin 'winmanager'
