@@ -5,6 +5,8 @@ set nocompatible                " nocompatible with VI, Vundle required
 filetype off                    " Vundle required
 let mapleader=";"
 let maplocalleader=","
+nnoremap <leader>ev :split $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 " appearence ---------------------------------------------------------
 set number                      " show line number
 set showtabline=0               " donot show tabline on top
