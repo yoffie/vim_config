@@ -7,10 +7,10 @@ let mapleader=";"
 let maplocalleader=","
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-" appearence ---------------------------------------------------------
+" appearance ---------------------------------------------------------
 set number                      " show line number
-set showtabline=0               " donot show tabline on top
-set guioptions-=m               " gui vim donot show menu bar
+set showtabline=0               " do not show tabline on top
+set guioptions-=m               " gui vim do not show menu bar
 set guioptions-=T               " gui vim donot show tool bar
 set guioptions-=r               " donot show scroll bar on right
 set guioptions-=L               " donot show scroll bar on left
@@ -25,6 +25,7 @@ set enc=utf-8                   " set encoding
 let &colorcolumn=join(range(81,120),",") " highlight regions over 80 characters
 " programming assistant ----------------------------------------------
 syntax on                       " highlight according to syntax
+set spell                       " spell checking
 set nowrap                      " donot wrap code
 set fileformat=unix             " line end using unix format
 set cindent                     " indent as C code
@@ -99,7 +100,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" The folllwing are my plugins
+" The following are my plugins
 Plugin 'jakwings/vim-colors'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'crusoexia/vim-monokai'
