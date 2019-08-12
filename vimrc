@@ -85,9 +85,9 @@ endif
 set list                        " show blank chars
 set listchars=tab:>-,trail:-
 " setting for specific filetypes -------------------------------------
-au BufNewFile,BufRead *.c,*.cpp,*.cc,*.cxx,*.C,*.c++,*.h,*.hpp,*.hxx set tabstop=4|set softtabstop=4|set shiftwidth=4|set expandtab
-au BufNewFile,BufRead *.prototxt set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
-au BufNewFile,BufRead *.tex set wrap
+autocmd BufNewFile,BufRead *.c,*.cpp,*.cc,*.cxx,*.C,*.c++,*.h,*.hpp,*.hxx set tabstop=4|set softtabstop=4|set shiftwidth=4|set expandtab
+autocmd BufNewFile,BufRead *.prototxt set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
+autocmd BufNewFile,BufRead *.tex set wrap
 
 "-----------------------------------------------------------
 " Vundle
