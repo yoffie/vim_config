@@ -95,7 +95,7 @@ autocmd BufNewFile,BufRead *.tex set wrap
 " Vundle
 "-----------------------------------------------------------
 " set the runtime path to include Vundle and initialize
-set rtp+=/home/songyoff/.vim/bundle/Vundle.vim
+set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('/some/path/here')
@@ -252,9 +252,9 @@ let g:ycm_complete_in_comments = 1              " enable YCM when writing commen
 let g:ycm_complete_in_strings = 1               " enable YCM when writing string
 let g:ycm_collect_identifiers_from_comments_and_strings = 0 " collect identifiers from comments and strings
 " add python packages' path
-let $PYTHONPATH .= ':/home/songyoff/anaconda3/lib/python3.6/site-packages/'
+let $PYTHONPATH .= ':' . $HOME . '/anaconda3/lib/python3.6/site-packages/'
 let g:ycm_confirm_extra_conf=0                  " need no confirm when load .ycm_extra_conf.py
-let g:ycm_global_ycm_extra_conf = '/home/songyoff/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = $HOME . '/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_semantic_triggers =  {
     \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
     \ 'cs,lua,javascript': ['re!\w{2}'],
