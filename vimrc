@@ -85,8 +85,10 @@ endif
 set list                        " show blank chars
 set listchars=tab:>-,trail:-
 " setting for specific filetypes -------------------------------------
-autocmd BufNewFile,BufRead *.c,*.cpp,*.cc,*.cxx,*.C,*.c++,*.h,*.hpp,*.hxx set tabstop=4|set softtabstop=4|set shiftwidth=4|set expandtab
-autocmd BufNewFile,BufRead *.prototxt set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
+autocmd BufNewFile,BufRead *.c,*.cpp,*.cc,*.cxx,*.C,*.c++,*.h,*.hpp,*.hxx
+    \ set tabstop=4|set softtabstop=4|set shiftwidth=4|set expandtab
+autocmd BufNewFile,BufRead *.prototxt
+    \ set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
 autocmd BufNewFile,BufRead *.tex set wrap
 
 "-----------------------------------------------------------
@@ -184,9 +186,15 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " open NERDTree automatically when vim starts up on opening a directory
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd VimEnter *
+    \ if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") |
+    \     exe 'NERDTree' argv()[0] | wincmd p | ene |
+    \ endif
 " quit if NERDTree is the last window
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter *
+    \ if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |
+    \     q |
+    \ endif
 let NERDTreeShowLineNumbers=1
 let NERDTreeAutoCenter=1
 "let g:nerdtree_tabs_open_on_console_startup=1  " auto open in console
