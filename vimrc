@@ -8,6 +8,7 @@ let maplocalleader=","
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 inoremap jk <ESC>
+inoremap <ESC> <Nop>
 " appearance ---------------------------------------------------------
 set number                      " show line number
 set showtabline=0               " do not show tabline on top
