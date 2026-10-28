@@ -8,7 +8,6 @@ let maplocalleader=","
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 inoremap jk <ESC>
-inoremap <ESC> <Nop>
 " appearance ---------------------------------------------------------
 set number                      " show line number
 set showtabline=0               " do not show tabline on top
@@ -115,9 +114,9 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'taglist.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
-Plugin 'sirver/ultisnips'
+"Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'lervag/vimtex'
 Plugin 'godlygeek/tabular'
@@ -152,8 +151,8 @@ set background=dark
 "colorscheme solarized         " set colorscheme
 set t_Co=256
 "let g:monokai_term_italic=1
-"colorscheme monokai         " set colorscheme
-colorscheme garden         " set colorscheme
+colorscheme monokai         " set colorscheme
+"colorscheme garden         " set colorscheme
 
 "---------------------------------------------------------------------
 " vim-airline
@@ -200,8 +199,8 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeAutoCenter=1
 "let g:nerdtree_tabs_open_on_console_startup=1  " auto open in console
 " NERDTree git
-let g:NERDTreeShowIgnoredStatus = 1
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusShowIgnored = 1
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
